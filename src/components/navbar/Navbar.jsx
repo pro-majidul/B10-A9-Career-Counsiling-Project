@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../provider/Provider';
 
 const Navbar = () => {
+    const { user ,userLogOut} = useContext(AuthContext)
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -23,7 +25,7 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        
+
                         <NavLink to='/' className='font-normal btn'> Home</NavLink>
                         <NavLink to='/service' className='font-normal btn'> Service</NavLink>
                         <NavLink to='/profile' className='font-normal btn'> My Profile</NavLink>
@@ -33,15 +35,23 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
-                <NavLink to='/' className={({isActive})=> isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Home</NavLink>
-                <NavLink to='/service' className={({isActive})=> isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Service</NavLink>
-                <NavLink to='/profile' className={({isActive})=> isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> My Profile</NavLink>
+                    <NavLink to='/' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Home</NavLink>
+                    <NavLink to='/service' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Service</NavLink>
+                    <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> My Profile</NavLink>
 
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink to='/login' className={({isActive})=> isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md btn font-normal btn'}>Login</NavLink>
-             
+                {
+                    user & user?.email ?
+                        <div>
+                            <img className='w-10 h-10 rounded-full' src={user.photoURl} alt="" />
+                            <button onClick={userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
+                        </div>
+                        : <NavLink to='/login'  className={({ isActive }) => isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md font-normal btn'}>Login</NavLink>
+                }
+
+
             </div>
         </div>
     );

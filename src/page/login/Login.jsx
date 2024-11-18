@@ -1,13 +1,35 @@
-import React from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/Provider';
 
 const Login = () => {
-
+    const [error , setError] = useState('')
+    const {user ,setUser, googleLogin, UserLogin} = useContext(AuthContext)
     const handelLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        setError('')
+        UserLogin(email, password)
+        .then((result)=>{
+            setUser(result.user)
+            console.log(result.user);
+        })
+        .catch(error =>{
+            setError(error.code)
+            console.log(error.code);
+
+        })
+    }
+
+    const handelGoogleLogin = () =>{
+        googleLogin()
+        .then(result =>{
+            setUser(result.user)
+        })
+        .catch(error =>{
+            setError(error.code)
+        })
     }
     return (
         <div className="hero bg-base-200 min-h-[calc(90vh-232px)]">
@@ -34,8 +56,18 @@ const Login = () => {
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                     </div>
+                    
+                   
+                    {
+                        error && <p className='my-3 py-3 text-red-500'>{error} </p>
+                    }
                 </form>
-                <p className='ml-6'>Not a member <Link to='/register' className='text-red-500'>Sign Up</Link> Now </p>
+                <p className='text-center pb-5'>or</p>
+                <div className='w-1/2 mx-auto'>
+                    <button onClick={handelGoogleLogin} className="btn btn-primary">Login with Google</button>
+                    </div>
+                <p className='ml-6 my-3'>Not a member <Link to='/register' className='text-red-500'>Sign Up</Link> Now </p>
+
             </div>
         </div>
     );
