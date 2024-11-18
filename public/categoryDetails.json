@@ -8,8 +8,8 @@
       "counselor": "John Doe",
       "rating": 4.8,
       "duration": "05-12-24, 5-6 PM",
-      "description": "One-on-one counseling session tailored to help you make informed career decisions.",
-      "learnMore": "Learn More"
+      "description": "One-on-one counseling session tailored to help you make informed career decisions."
+      
     },
     {
       "id": 2,
@@ -20,8 +20,8 @@
       "counselor": "Jane Smith",
       "rating": 4.7,
       "duration": "06-12-24, 3-4 PM",
-      "description": "Get your resume reviewed by industry experts to stand out to recruiters.",
-      "learnMore": "Learn More"
+      "description": "Get your resume reviewed by industry experts to stand out to recruiters."
+      
     },
     {
       "id": 3,
@@ -32,8 +32,8 @@
       "counselor": "Michael Johnson",
       "rating": 4.6,
       "duration": "07-12-24, 10-11 AM",
-      "description": "Participate in a mock interview to build confidence and improve performance.",
-      "learnMore": "Learn More"
+      "description": "Participate in a mock interview to build confidence and improve performance."
+      
     },
     {
       "id": 4,
@@ -44,8 +44,8 @@
       "counselor": "Emma Williams",
       "rating": 4.9,
       "duration": "08-12-24, 2-5 PM",
-      "description": "Interactive workshop to create a strategic plan for your professional growth.",
-      "learnMore": "Learn More"
+      "description": "Interactive workshop to create a strategic plan for your professional growth."
+      
     },
     {
       "id": 5,
@@ -56,8 +56,8 @@
       "counselor": "Sophia Brown",
       "rating": 4.5,
       "duration": "09-12-24, 4-5 PM",
-      "description": "Optimize your LinkedIn profile to attract potential employers and expand your network.",
-      "learnMore": "Learn More"
+      "description": "Optimize your LinkedIn profile to attract potential employers and expand your network."
+      
     },
     {
       "id": 6,
@@ -68,8 +68,8 @@
       "counselor": "William Davis",
       "rating": 4.8,
       "duration": "10-12-24, 1-3 PM",
-      "description": "Gain insights and guidance to kickstart your entrepreneurial journey.",
-      "learnMore": "Learn More"
+      "description": "Gain insights and guidance to kickstart your entrepreneurial journey."
+      
     },
     {
       "id": 7,
@@ -80,8 +80,8 @@
       "counselor": "Olivia Taylor",
       "rating": 4.7,
       "duration": "11-12-24, 6-8 PM",
-      "description": "Learn strategies to build a strong personal brand for career success.",
-      "learnMore": "Learn More"
+      "description": "Learn strategies to build a strong personal brand for career success."
+      
     },
     {
       "id": 8,
@@ -92,8 +92,8 @@
       "counselor": "Liam Harris",
       "rating": 4.6,
       "duration": "12-12-24, 4-6 PM",
-      "description": "Master the art of negotiating your salary with confidence and skill.",
-      "learnMore": "Learn More"
+      "description": "Master the art of negotiating your salary with confidence and skill."
+      
     },
     {
       "id": 9,
@@ -104,8 +104,8 @@
       "counselor": "Mason Lee",
       "rating": 4.9,
       "duration": "13-12-24, 10 AM - 1 PM",
-      "description": "Get personalized advice on choosing and applying to graduate programs.",
-      "learnMore": "Learn More"
+      "description": "Get personalized advice on choosing and applying to graduate programs."
+      
     },
     {
       "id": 10,
@@ -116,8 +116,8 @@
       "counselor": "Charlotte Miller",
       "rating": 4.8,
       "duration": "14-12-24, 5-6 PM",
-      "description": "Develop skills to build meaningful professional relationships.",
-      "learnMore": "Learn More"
+      "description": "Develop skills to build meaningful professional relationships."
+      
     },
     {
       "id": 11,
@@ -128,8 +128,8 @@
       "counselor": "James Wilson",
       "rating": 4.5,
       "duration": "15-12-24, 3-4 PM",
-      "description": "Learn effective time management strategies to boost productivity.",
-      "learnMore": "Learn More"
+      "description": "Learn effective time management strategies to boost productivity."
+      
     },
     {
       "id": 12,
@@ -140,8 +140,8 @@
       "counselor": "Ella Thomas",
       "rating": 4.9,
       "duration": "16-12-24, 9 AM - 12 PM",
-      "description": "Enhance your leadership skills and prepare for managerial roles.",
-      "learnMore": "Learn More"
+      "description": "Enhance your leadership skills and prepare for managerial roles."
+      
     }
   ]
   
