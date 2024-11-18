@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 
 const Register = () => {
-    const {signUpUser ,updateUserProfile, setUser} = useContext(AuthContext)
+    const { signUpUser, updateUserProfile, setUser, googleLogin } = useContext(AuthContext)
     const handelRegister = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -11,17 +11,27 @@ const Register = () => {
         const photo = e.target.photo.value;
         const name = e.target.name.value;
         console.log(email, password, name, photo);
-        signUpUser(email , password)
-        .then(() =>{
-            updateUserProfile(name , photo)
-            .then((result) =>{
-                setUser(result)
-                alert('userlogin success')
+        signUpUser(email, password)
+            .then(() => {
+                updateUserProfile(name, photo)
+                    .then((result) => {
+                        setUser(result.user)
+                        alert('userlogin success')
+                    })
             })
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    const googleloginhandler = () => {
+        googleLogin()
+            .then(result => {
+                setUser(result.user)
+            })
+            .catch(error =>{
+                console.log(error.code);
+            })
+        console.log('google login added');
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -35,6 +45,12 @@ const Register = () => {
                         </label>
                         <input name='name' type="text" placeholder="Your Name" className="input input-bordered" required />
                     </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                    </div>
 
                     <div className="form-control">
                         <label className="label">
@@ -42,12 +58,7 @@ const Register = () => {
                         </label>
                         <input name='photo' type="text" placeholder="Photo-url" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input name='email' type="email" placeholder="email" className="input input-bordered" required />
-                    </div>
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
@@ -59,6 +70,10 @@ const Register = () => {
                         <button className="btn btn-primary">Register</button>
                     </div>
                 </form>
+                <p className='text-center'>or</p>
+                <div className='w-1/2 my-3 mx-auto'>
+                    <button onClick={googleloginhandler} className="btn btn-primary">Login with Google</button>
+                </div>
                 <p className='ml-6'>Allready have an account  <Link to='/login' className='text-red-500'>Login</Link> Now </p>
             </div>
         </div>

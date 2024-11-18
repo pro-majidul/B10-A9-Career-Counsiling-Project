@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const Navbar = () => {
-    const { user ,userLogOut} = useContext(AuthContext)
+    const { user, userLogOut } = useContext(AuthContext)
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -45,10 +46,16 @@ const Navbar = () => {
                 {
                     user && user?.email ?
                         <div className='flex items-center gap-2'>
-                            <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
-                            <button onClick={ userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
+                            <img data-tooltip-id="my-tooltip-2" referrerPolicy="no-referrer" className='w-10 h-10 rounded-full' src={user?.photoURL} alt={user.email} />
+                            <ReactTooltip
+                                id="my-tooltip-2"
+                                place="bottom"
+                                variant="info"
+                                content={user.email}
+                            />
+                            <button onClick={userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
                         </div>
-                        : <NavLink to='/login'  className={({ isActive }) => isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md font-normal btn'}>Login</NavLink>
+                        : <NavLink to='/login' className={({ isActive }) => isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md font-normal btn'}>Login</NavLink>
                 }
 
 
