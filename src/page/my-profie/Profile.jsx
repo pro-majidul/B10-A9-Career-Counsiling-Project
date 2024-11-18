@@ -3,7 +3,21 @@ import { AuthContext } from '../../provider/Provider';
 
 const Profile = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user,setUser,updateUserProfile } = useContext(AuthContext)
+
+    const handelProfileUpdate = e =>{
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const photo = form.get('photo');
+        const name = form.get('name');
+        updateUserProfile(name , photo)
+        .then(result=>{
+            setUser({...user ,result})
+        })
+        .catch(error =>{
+            console.log(error.code);
+        })
+    }
     return (
         <div className='flex items-center justify-center min-h-[calc(100vh-232px)]'>
             <div className=" md:w-6/12 mx-auto bg-base-100 py-5 rounded-xl shadow-2xl">
@@ -16,18 +30,18 @@ const Profile = () => {
                     <img className='w-32 h-32 rounded-full' src={ user?.photoURL} alt="" />
                 </div>
                 <div>
-                    <form className="card-body">
+                    <form onSubmit={handelProfileUpdate} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" placeholder="photo-url" className="input input-bordered" required />
+                            <input name='photo' type="text" placeholder="photo-url" className="input input-bordered" required />
                             
                         </div>
                         <div className="form-control mt-6">
