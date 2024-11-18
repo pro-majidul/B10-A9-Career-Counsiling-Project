@@ -29,7 +29,7 @@ const Navbar = () => {
                         <NavLink to='/profile' className='font-normal btn'> My Profile</NavLink>
                     </ul>
                 </div>
-                <Link to='/' className='btn btn-ghost text-3xl font-bold'>Career Counsiling </Link>
+                <Link to='/' className='btn btn-ghost md:text-3xl font-bold'>Career Counsiling </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink to='/login' className={({isActive})=> isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}>Login</NavLink>
+            <NavLink to='/login' className={({isActive})=> isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md btn font-normal btn'}>Login</NavLink>
              
             </div>
         </div>
