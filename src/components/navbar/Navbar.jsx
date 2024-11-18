@@ -43,10 +43,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user & user?.email ?
-                        <div>
-                            <img className='w-10 h-10 rounded-full' src={user.photoURl} alt="" />
-                            <button onClick={userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
+                    user && user?.email ?
+                        <div className='flex items-center gap-2'>
+                            <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
+                            <button onClick={ userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
                         </div>
                         : <NavLink to='/login'  className={({ isActive }) => isActive ? 'font-normal btn-sm md:btn-md btn btn-primary' : 'btn-sm md:btn-md font-normal btn'}>Login</NavLink>
                 }

@@ -32,7 +32,7 @@ const Login = () => {
         })
     }
     return (
-        <div className="hero bg-base-200 min-h-[calc(90vh-232px)]">
+        <div className="hero bg-base-200 min-h-[calc(100vh-232px)]">
 
             <div className="card bg-base-100 p-6 w-full max-w-md shrink-0 shadow-2xl">
                 <h3 className='font-semibold text-3xl ml-6'>Login Now </h3>

@@ -12,8 +12,8 @@ const Provider = ({ children }) => {
   const googleLogin = () => {
     return signInWithPopup(auth, googleProvider)
   }
-  const userLogOut = ()=>{
-    return signOut()
+  const userLogOut = () => {
+    return signOut(auth)
   }
 
   const UserLogin = (email, password) => {
@@ -24,13 +24,13 @@ const Provider = ({ children }) => {
   }
 
   const updateUserProfile = (name, photo) => {
-    updateProfile(auth.currentUser, {
+    return updateProfile(auth.currentUser, {
       displayName: name, photoURL: photo,
     })
   }
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth , currentUser => {
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
       if (currentUser) {
         setUser(currentUser);
         setLoader(false)
