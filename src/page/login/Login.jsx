@@ -1,10 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 
 const Login = () => {
-    const [error, setError] = useState('')
-    const { setUser, googleLogin, UserLogin } = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const emailRef = useRef();
+    const { setUser, googleLogin, UserLogin, forgetPassword } = useContext(AuthContext)
     const handelLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -31,6 +32,26 @@ const Login = () => {
                 setError(error.code)
             })
     }
+
+    const handelForgetPassword = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            return alert('please provide an email')
+        }
+        else {
+
+            forgetPassword(email)
+                .then(result => {
+                    console.log(result);
+                })
+        }
+
+
+
+    }
+
+
+
     return (
         <div className="hero bg-base-200 min-h-[calc(100vh-232px)]">
 
@@ -42,14 +63,14 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                        <input name='email' ref={emailRef} type="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input name='password' type="password" placeholder="password" className="input input-bordered" required />
-                        <label className="label">
+                        <label onClick={handelForgetPassword} className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>

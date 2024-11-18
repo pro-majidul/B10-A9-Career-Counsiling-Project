@@ -10,7 +10,15 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
         const name = e.target.name.value;
-        console.log(email, password, name, photo);
+        if (password.length < 6) {
+            return alert('password must be 6 charector')
+        }
+        if (/[A-Z]/.test(password)) {
+            return alert('provide an Uppercase Latter')
+        }
+        if (/[a-z]/.test(password)) {
+            return ('provide an lowercase latter')
+        }
         signUpUser(email, password)
             .then(() => {
                 updateUserProfile(name, photo)
@@ -28,7 +36,7 @@ const Register = () => {
             .then(result => {
                 setUser(result.user)
             })
-            .catch(error =>{
+            .catch(error => {
                 console.log(error.code);
             })
         console.log('google login added');
