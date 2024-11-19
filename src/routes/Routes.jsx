@@ -11,6 +11,7 @@ import Login from "../page/login/Login";
 import Register from "../page/register/Register";
 import Profile from "../page/my-profie/Profile";
 import DetailsCard from "../components/detailscard/DetailsCard";
+import Private from "../private/Private";
 const Routes = createBrowserRouter([
   {
     path: '/',
@@ -38,7 +39,9 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <Private>
+          <Profile></Profile>
+        </Private>
       },
       {
         path: '/details/:id',
