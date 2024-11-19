@@ -53,7 +53,7 @@ const Navbar = () => {
                                 id="my-tooltip-2"
                                 place="bottom"
                                 variant="info"
-                                content={user.email}
+                                content={user.displayName}
                             />
                             <button onClick={userLogOut} className={'font-normal btn-sm md:btn-md btn btn-primary'}>Log Out</button>
                         </div>

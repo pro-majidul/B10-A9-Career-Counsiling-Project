@@ -3,17 +3,22 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import { MdOutlineEmail } from 'react-icons/md';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
     AOS.init();
     return (
         <div>
+            <Helmet>
+                <title>Contact Us</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <div className="hero bg-base-100 min-h-screen">
-                <div  className="hero-content gap-10 items-start flex-col lg:flex-row-reverse">
+                <div className="hero-content gap-10 items-start flex-col lg:flex-row-reverse">
                     <div data-aos="zoom-in-left" className="text-center  lg:text-left">
                         <h1 className="md:text-4xl font-bold">Feel Free to Contact with Us</h1>
                         <p className="py-6">
-                        Located at United International University, this center offers services such as job placement, resume writing, interview techniques, and more
+                            Located at United International University, this center offers services such as job placement, resume writing, interview techniques, and more
                         </p>
                         <p className='mb-3'>Phone</p>
                         <hr />
