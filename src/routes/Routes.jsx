@@ -13,6 +13,7 @@ import Profile from "../page/my-profie/Profile";
 import DetailsCard from "../components/detailscard/DetailsCard";
 import Private from "../private/Private";
 import ForgetPass from "../page/login/ForgetPass";
+import ContactUs from "../components/contact/ContactUs";
 const Routes = createBrowserRouter([
   {
     path: '/',
@@ -59,6 +60,10 @@ const Routes = createBrowserRouter([
       {
         path : '/forget',
         element : <ForgetPass></ForgetPass>
+      },
+      {
+        path : '/contact',
+        element : <ContactUs></ContactUs>
       }
     ]
   },

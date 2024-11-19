@@ -30,6 +30,7 @@ const Navbar = () => {
                         <NavLink to='/' className='font-normal btn'> Home</NavLink>
                         <NavLink to='/service' className='font-normal btn'> Service</NavLink>
                         <NavLink to='/profile' className='font-normal btn'> My Profile</NavLink>
+                        <NavLink to='/contact' className='font-normal btn'> Contact Us</NavLink>
                     </ul>
                 </div>
                 <Link to='/' className='btn btn-ghost md:text-3xl font-bold'>Career Counsiling </Link>
@@ -39,6 +40,7 @@ const Navbar = () => {
                     <NavLink to='/' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Home</NavLink>
                     <NavLink to='/service' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Service</NavLink>
                     <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> My Profile</NavLink>
+                    <NavLink to='/contact' className={({ isActive }) => isActive ? 'font-normal btn btn-primary' : 'font-normal btn'}> Contact Us</NavLink>
 
                 </ul>
             </div>

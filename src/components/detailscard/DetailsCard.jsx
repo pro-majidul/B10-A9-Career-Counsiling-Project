@@ -13,7 +13,6 @@ const DetailsCard = () => {
         const inputText = textRef.current.value;
         setInfo([...info, inputText])
     }
-    console.log(info);
 
     return (
         <div
@@ -46,7 +45,7 @@ const DetailsCard = () => {
                         </div>
                         <h2 className="card-title">Service Name : {serviceName}</h2>
                         <h2 className="card-title">Counselor : {counselor}</h2>
-                        <p className='flex items-center gap-3'> <span className='card-title'>Descriptions : </span> {description}</p>
+                        <p className='md:flex items-center gap-3'> <span className='card-title'>Descriptions : </span> {description}</p>
                         <div className='md:flex items-center justify-between'>
                             <h3 className='card-title'>Price : {price}</h3>
                             <p className='items-center flex gap-2'><Rating name="read-only" value={rating} readOnly /> {rating}</p>
@@ -58,7 +57,7 @@ const DetailsCard = () => {
                 <div>
                     <div className='my-3 py-3 h-[200px] overflow-y-scroll border-2 w-8/12 mx-auto'>
                         {
-                            info && info.map(item => <div className='bg-green-300 md:w-4/12  p-6 rounded-xl my-2 py-2'>
+                            info && info.map((item, ind) => <div key={ind} className='bg-green-300 md:w-4/12  p-6 rounded-xl my-2 py-2'>
                                 <h3 className='text-2xl font-semibold text-black '>{item}</h3>
                             </div>)
                         }
