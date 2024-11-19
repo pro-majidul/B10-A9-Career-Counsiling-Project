@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from 'react-helmet';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 const Register = () => {
     const { signUpUser, updateUserProfile, setUser, googleLogin } = useContext(AuthContext)
+
+    const [showpass , setShowpass] = useState(false)
     const handelRegister = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -71,11 +74,17 @@ const Register = () => {
                         <input name='photo' type="text" placeholder="Photo-url" className="input input-bordered" required />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                        <input  name='password' type={showpass ? 'text' : 'password'} placeholder="password" className="input input-bordered " required />
+                        <div className='absolute right-3 top-14' onClick={()=>setShowpass(!showpass)}>
+                       {
+                        showpass ?  <IoMdEye /> :
+                        <IoMdEyeOff />
+                       }
+                        </div>
 
                     </div>
                     <div className="form-control mt-6">
