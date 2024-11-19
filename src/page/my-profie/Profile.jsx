@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/Provider';
+import { Helmet } from 'react-helmet';
 
 const Profile = () => {
 
@@ -20,6 +21,10 @@ const Profile = () => {
     }
     return (
         <div className='flex items-center justify-center min-h-[calc(100vh-232px)]'>
+            <Helmet>
+                <title>My Profile</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <div className=" md:w-6/12 mx-auto bg-base-100 py-5 rounded-xl shadow-2xl">
                 <div className="p-6 space-y-5">
                     <h2 className=" text-xl font-semibold  text-center"> Name : { user?.displayName}</h2>

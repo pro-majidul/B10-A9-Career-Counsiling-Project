@@ -2,12 +2,17 @@ import React from 'react';
 import Banner from '../banner/Banner';
 import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../page/service/ServiceCard';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const items = useLoaderData();
     const data = items.slice(0, 6)
     return (
         <div>
+            <Helmet>
+                <title>Home Page</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <Banner></Banner>
             <h3 className='md:text-3xl text-xl my-5 py-5 font-bold underline underline-offset-8 uppercase'>Our Services</h3>
             <section className='grid md:grid-cols-3 gap-10 my-10 py-5'>

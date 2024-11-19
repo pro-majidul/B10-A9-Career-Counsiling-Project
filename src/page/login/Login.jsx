@@ -1,11 +1,15 @@
 import { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
+import {Helmet} from "react-helmet";
 
 const Login = () => {
     const [error, setError] = useState('');
     const emailRef = useRef();
-    const { setUser, googleLogin, UserLogin, forgetPassword } = useContext(AuthContext)
+    const { setUser, googleLogin, UserLogin, forgetPassword } = useContext(AuthContext);
+
+
+
     const handelLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -53,8 +57,12 @@ const Login = () => {
 
 
     return (
-        <div className="hero bg-base-200 min-h-[calc(100vh-232px)]">
 
+        <div className="hero bg-base-200 min-h-[calc(100vh-232px)]">
+            <Helmet>
+                <title>Login Page</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <div className="card bg-base-100 p-6 w-full max-w-md shrink-0 shadow-2xl">
                 <h3 className='font-semibold text-3xl ml-6'>Login Now </h3>
                 <form onSubmit={handelLogin} className="card-body">

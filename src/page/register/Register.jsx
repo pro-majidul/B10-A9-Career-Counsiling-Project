@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { signUpUser, updateUserProfile, setUser, googleLogin } = useContext(AuthContext)
@@ -43,7 +44,10 @@ const Register = () => {
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
-
+            <Helmet>
+                <title>Register Your Email</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <div className="card bg-base-100 p-6 w-full max-w-md shrink-0 shadow-2xl">
                 <h3 className='font-semibold text-3xl ml-6'>Register Now</h3>
                 <form onSubmit={handelRegister} className="card-body">

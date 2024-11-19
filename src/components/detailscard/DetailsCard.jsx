@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 
 const DetailsCard = () => {
@@ -11,7 +12,12 @@ const DetailsCard = () => {
             backgroundPosition: 'center',
             backgroundSize : 'cover',
         }} 
+        
         className='hero min-h-screen'>
+            <Helmet>
+                <title>Details Card</title>
+                <meta name="description" content="Nested component" />
+            </Helmet>
             <div className="hero-content block">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
