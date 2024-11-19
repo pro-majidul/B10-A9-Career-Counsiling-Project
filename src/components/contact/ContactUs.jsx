@@ -32,7 +32,7 @@ const ContactUs = () => {
                     </div>
                     <div data-aos="zoom-in-right" className="card w-full md:max-w-md p-3 shrink-0 shadow-2xl">
                         <h3 className='md:text-4xl  font-bold'>Leave a Message Here</h3>
-                        <form class="w-full  bg-white rounded-lg items-center">
+                        <form className="w-full  bg-white rounded-lg items-center">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name*</span>
@@ -69,6 +69,9 @@ const ContactUs = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div>
+               
             </div>
         </div>
     );

@@ -7,7 +7,6 @@ export const AuthContext = createContext()
 const Provider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loader, setLoader] = useState(true);
-  console.log(children);
 
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = () => {
@@ -34,39 +33,39 @@ const Provider = ({ children }) => {
     })
   }
 
-  useEffect(()=>{
-    const unSubscribe = onAuthStateChanged(auth, currentUser =>{
-      if(currentUser){
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+      if (currentUser) {
         setUser(currentUser);
         setLoader(false)
-      }else{
+      } else {
         setUser('');
         setLoader(false)
       }
     })
-    return ()=>{
+    return () => {
       unSubscribe()
     }
-  },[])
+  }, [])
 
-    const infoData = {
-      googleLogin,
-      user,
-      setUser,
-      loader,
-      UserLogin,
-      signUpUser,
-      updateUserProfile,
-      userLogOut,
-      forgetPassword
+  const infoData = {
+    googleLogin,
+    user,
+    setUser,
+    loader,
+    UserLogin,
+    signUpUser,
+    updateUserProfile,
+    userLogOut,
+    forgetPassword
 
-    }
-    return (
-      <AuthContext.Provider value={infoData}>
-        {children}
-      </AuthContext.Provider>
+  }
+  return (
+    <AuthContext.Provider value={infoData}>
+      {children}
+    </AuthContext.Provider>
 
-    );
-  };
+  );
+};
 
-  export default Provider;
+export default Provider;

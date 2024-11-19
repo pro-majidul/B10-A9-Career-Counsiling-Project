@@ -1,10 +1,12 @@
 import React, { useContext, useRef } from 'react';
 import { AuthContext } from '../../provider/Provider';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const ForgetPass = () => {
     const { forgetPassword } = useContext(AuthContext)
     const emailRef = useRef();
+    const navigate = useNavigate()
     const handelForgetPassword = () => {
         const email = emailRef.current.value;
         if (!email) {
@@ -14,6 +16,7 @@ const ForgetPass = () => {
 
             forgetPassword(email)
                 .then(() => {
+                    navigate('/login')
                    toast.success('password sent to your email. please check your email')
                 })
         }

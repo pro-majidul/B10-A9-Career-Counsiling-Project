@@ -47,8 +47,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user && user?.email ?
-                        <div className='flex items-center gap-2'>
-                            <img data-tooltip-id="my-tooltip-2" referrerPolicy="no-referrer" className='w-10 h-10 rounded-full' src={user?.photoURL} alt={user.email} />
+                        <div className='md:flex items-center gap-2'>
+                            <img data-tooltip-id="my-tooltip-2" referrerPolicy="no-referrer" className='w-10 h-10 hidden md:block rounded-full' src={user?.photoURL} alt={user.email} />
                             <ReactTooltip
                                 id="my-tooltip-2"
                                 place="bottom"
