@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from 'react-helmet';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 const Register = () => {
-    const { signUpUser, updateUserProfile, setUser, googleLogin } = useContext(AuthContext)
+    const { signUpUser, updateUserProfile, setUser, googleLogin,userLogOut } = useContext(AuthContext)
 
     const [showpass , setShowpass] = useState(false)
+    const navigate = useNavigate()
     const handelRegister = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -29,8 +30,14 @@ const Register = () => {
                     .then((result) => {
                         setUser(result.user)
                         alert('userlogin success')
+                    });
+                    userLogOut(email)
+                    .then(()=>{
+                       navigate('/login') 
                     })
+
             })
+
             .catch(error => {
                 console.log(error);
             })
