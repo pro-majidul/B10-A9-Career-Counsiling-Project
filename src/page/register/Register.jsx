@@ -16,20 +16,22 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
         const name = e.target.name.value;
+        
         if (password.length < 6) {
             return alert('password must be 6 charector')
         }
-        if (/[A-Z]/.test(password)) {
+        if (!/^(?=.*[a-z]).*$/.test(password)) {
+            return alert('provide an Lowerercase Latter')
+        }
+        if (!/^(?=.*[A-Z]).*$/.test(password)) {
             return alert('provide an Uppercase Latter')
         }
-        if (/[a-z]/.test(password)) {
-            return ('provide an lowercase latter')
-        }
+        
         signUpUser(email, password)
             .then(() => {
                 updateUserProfile(name, photo)
                     .then((result) => {
-                        setUser(result.user)
+                        setUser(result)
                         alert('userlogin success')
                     });
                     userLogOut(email)
