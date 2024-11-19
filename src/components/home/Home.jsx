@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../page/service/ServiceCard';
 import { Helmet } from 'react-helmet';
 import Feedback from '../feedback/Feedback';
+import Event from '../events/Event';
 
 const Home = () => {
     const items = useLoaderData();
@@ -25,10 +26,15 @@ const Home = () => {
 
             </section>
             <div className='w-32 mx-auto md:my-5 md:py-5'>
-               <Link to='/service'> <button className='btn md:btn-md btn-sm btn-accent '>Show ALL</button></Link>
+                <Link to='/service'> <button className='btn md:btn-md btn-sm btn-accent '>Show ALL</button></Link>
             </div>
+            <section className='md:my-5 md:py-5'>
+                <Event></Event>
+            </section>
 
-            <Feedback></Feedback>
+            <section className='md:my-5 md:py-5'>
+                <Feedback></Feedback>
+            </section>
         </div>
     );
 };
