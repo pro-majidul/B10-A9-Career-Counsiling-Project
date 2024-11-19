@@ -8,11 +8,12 @@ const DetailsCard = () => {
     const { image, description, duration, rating, counselor, price, category, serviceName } = useLoaderData()
 
     const textRef = useRef();
-    const [info, setInfo] = useState(null)
+    const [info, setInfo] = useState([])
     const submitFeedback = () => {
         const inputText = textRef.current.value;
-        setInfo(inputText)
+        setInfo([...info, inputText])
     }
+    console.log(info);
 
     return (
         <div
@@ -40,8 +41,8 @@ const DetailsCard = () => {
                     </figure>
                     <div className="mt-5 space-y-2">
                         <div className='md:flex items-center justify-between'>
-                        <h2 className="card-title">Category: {category}</h2>
-                        <p className=''>Time : {duration}</p>
+                            <h2 className="card-title">Category: {category}</h2>
+                            <p className=''>Time : {duration}</p>
                         </div>
                         <h2 className="card-title">Service Name : {serviceName}</h2>
                         <h2 className="card-title">Counselor : {counselor}</h2>
@@ -50,16 +51,16 @@ const DetailsCard = () => {
                             <h3 className='card-title'>Price : {price}</h3>
                             <p className='items-center flex gap-2'><Rating name="read-only" value={rating} readOnly /> {rating}</p>
                         </div>
-                        
+
                     </div>
                 </div>
 
                 <div>
-                    <div>
+                    <div className='my-3 py-3 h-[200px] overflow-y-scroll border-2 w-8/12 mx-auto'>
                         {
-                            info && <div className='bg-green-300 md:w-4/12 mx-auto p-6 rounded-xl my-2 py-2'>
-                                <h3 className='text-2xl font-semibold text-black '>{info}</h3>
-                            </div>
+                            info && info.map(item => <div className='bg-green-300 md:w-4/12  p-6 rounded-xl my-2 py-2'>
+                                <h3 className='text-2xl font-semibold text-black '>{item}</h3>
+                            </div>)
                         }
                     </div>
                     <div className='md:w-8/12 md:mt-10 mt-4 mx-auto'>
