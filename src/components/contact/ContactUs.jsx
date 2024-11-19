@@ -1,12 +1,15 @@
 import React from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { MdOutlineEmail } from 'react-icons/md';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ContactUs = () => {
+    AOS.init();
     return (
         <div>
             <div className="hero bg-base-100 min-h-screen">
-                <div className="hero-content items-start flex-col lg:flex-row-reverse">
+                <div data-aos="zoom-in-left" className="hero-content items-start flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="md:text-4xl font-bold">Feel Free to Contact with Us</h1>
                         <p className="py-6">
@@ -19,10 +22,10 @@ const ContactUs = () => {
 
                         <p className='mb-2 md:mt-8'>Email</p>
                         <hr />
-                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail /> <a className='text-xl' > majidul123tub@gmail.com</a></p>
+                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail size={24} /> <a className='text-xl' > majidul123tub@gmail.com</a></p>
 
                     </div>
-                    <div className="card w-full max-w-md p-3 shrink-0 shadow-2xl">
+                    <div data-aos="zoom-in-right" className="card w-full md:max-w-md p-3 shrink-0 shadow-2xl">
                         <h3 className='md:text-4xl  font-bold'>Leave a Message Here</h3>
                         <form className="card-body">
                             <div className="form-control">

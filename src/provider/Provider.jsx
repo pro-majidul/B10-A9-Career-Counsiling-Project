@@ -6,7 +6,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 export const AuthContext = createContext()
 const Provider = ({ children }) => {
   const [user, setUser] = useState(null)
-  const [loader, setLoader] = useState(true)
+  const [loader, setLoader] = useState(true);
+  console.log(children);
 
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = () => {

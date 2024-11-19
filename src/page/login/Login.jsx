@@ -2,6 +2,7 @@ import { useContext,  useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from "react-helmet";
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -21,9 +22,11 @@ const Login = () => {
             .then((result) => {
                 setUser(result.user)
                 navigate(location.state ? location.state : '/')
+                toast.success('user login successfully ')
             })
             .catch(error => {
                 setError(error.code)
+                toast.error(error.code)
             })
     }
 
@@ -31,16 +34,14 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 setUser(result.user)
-                navigate(location.state ? location.state : '/')
+                navigate(location.state ? location.state : '/');
+                toast.success('google user login successfully')
             })
             .catch(error => {
                 setError(error.code)
+                toast.error(error.code)
             })
     }
-
-    
-
-
 
     return (
 
@@ -49,7 +50,7 @@ const Login = () => {
                 <title>Login Page</title>
                 <meta name="description" content="Nested component" />
             </Helmet>
-            <div className="card bg-base-100 p-6 w-full max-w-md shrink-0 shadow-2xl">
+            <div className="card bg-base-100 p-6 w-full md:max-w-md shrink-0 shadow-2xl">
                 <h3 className='font-semibold text-3xl ml-6'>Login Now </h3>
                 <form onSubmit={handelLogin} className="card-body">
 

@@ -1,8 +1,5 @@
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../mainLayout/MainLayout";
 import Home from "../components/home/Home";
 import Service from "../page/service/Service";
@@ -58,12 +55,12 @@ const Routes = createBrowserRouter([
         }
       },
       {
-        path : '/forget',
-        element : <ForgetPass></ForgetPass>
+        path: '/forget',
+        element: <ForgetPass></ForgetPass>
       },
       {
-        path : '/contact',
-        element : <ContactUs></ContactUs>
+        path: '/contact',
+        element: <ContactUs></ContactUs>
       }
     ]
   },

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from 'react-helmet';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const { signUpUser, updateUserProfile, setUser, googleLogin,userLogOut } = useContext(AuthContext)
@@ -18,13 +19,13 @@ const Register = () => {
         const name = e.target.name.value;
         
         if (password.length < 6) {
-            return alert('password must be 6 charector')
+            return toast.error('password must be 6 charector')
         }
         if (!/^(?=.*[a-z]).*$/.test(password)) {
-            return alert('provide an Lowerercase Latter')
+            return toast.error('provide an Lowerercase Latter')
         }
         if (!/^(?=.*[A-Z]).*$/.test(password)) {
-            return alert('provide an Uppercase Latter')
+            return toast.error('provide an Uppercase Latter')
         }
         
         signUpUser(email, password)
@@ -32,29 +33,31 @@ const Register = () => {
                 updateUserProfile(name, photo)
                     .then((result) => {
                         setUser(result)
-                        alert('userlogin success')
+                        toast.success('userlogin success')
                     });
                     userLogOut(email)
                     .then(()=>{
-                       navigate('/login') 
+                       navigate('/login') ;
+                       toast.success('user Logout success')
                     })
 
             })
 
             .catch(error => {
-                console.log(error);
+                toast.error(error.code)
             })
     }
     const googleloginhandler = () => {
         googleLogin()
             .then(result => {
                 setUser(result.user);
+                toast.success('google user login success')
                 navigate(location.state ? location.state : '/')
             })
             .catch(error => {
-                console.log(error.code);
+               toast.error(error.code)
             })
-        console.log('google login added');
+        
     }
     return (
         <div className="hero bg-base-200 min-h-screen">

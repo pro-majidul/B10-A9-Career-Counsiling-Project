@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from 'react-helmet';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
 
@@ -13,10 +14,11 @@ const Profile = () => {
         const name = form.get('name');
         updateUserProfile(name , photo)
         .then(result=>{
-            setUser({...user ,result})
+            setUser({...user ,result});
+            toast.success('user profile update successfully')
         })
         .catch(error =>{
-            console.log(error.code);
+            toast.error(error.code)
         })
     }
     return (

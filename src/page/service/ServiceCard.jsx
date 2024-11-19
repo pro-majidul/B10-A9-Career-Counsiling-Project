@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServiceCard = ({ item }) => {
+    AOS.init();
     return (
-        <div className="card bg-base-100  shadow-xl">
+        <div data-aos="zoom-in" className="card bg-base-100  shadow-xl">
             <figure>
                 <img
                     src={item.image}

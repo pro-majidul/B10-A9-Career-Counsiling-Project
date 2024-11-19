@@ -6,14 +6,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 const Feedback = () => {
+    AOS.init();
     return (
-        <div className='md:flex items-center md:h-[400px] overflow-hidden justify-between gap-10 my-5  rounded-md shadow-md bg-blue-600 p-10 '>
+        <div data-aos="zoom-in" className='md:flex items-center md:h-[400px] overflow-hidden justify-between gap-10 my-5  rounded-md shadow-md bg-blue-600 p-10 '>
             <section className='md:w-1/2 mb-4'>
                 <h3 className='text-3xl md:text-5xl  font-bold text-white'>Student Says <br  /> About Us..</h3>
             </section>
