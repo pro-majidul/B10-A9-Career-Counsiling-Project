@@ -5,7 +5,13 @@ const DetailsCard = () => {
     const { image, learnMore, description, duration, rating, counselor, price, category, serviceName } = useLoaderData()
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div
+        style={{
+            backgroundImage:`url(${image})`,
+            backgroundPosition: 'center',
+            backgroundSize : 'cover',
+        }} 
+        className='hero min-h-screen'>
             <div className="hero-content block">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
