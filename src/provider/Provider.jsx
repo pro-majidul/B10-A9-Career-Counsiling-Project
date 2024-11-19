@@ -33,39 +33,39 @@ const Provider = ({ children }) => {
     })
   }
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, currentUser => {
-      if (currentUser) {
+  useEffect(()=>{
+    const unSubscribe = onAuthStateChanged(auth, currentUser =>{
+      if(currentUser){
         setUser(currentUser);
         setLoader(false)
-      } else (
-        setUser(null)
-      )
+      }else{
+        setUser('');
+        setLoader(false)
+      }
     })
-
-    return () => {
-      unSubscribe();
+    return ()=>{
+      unSubscribe()
     }
-  }, [])
+  },[])
 
-  const infoData = {
-    googleLogin,
-    user,
-    setUser,
-    loader,
-    UserLogin,
-    signUpUser,
-    updateUserProfile,
-    userLogOut,
-    forgetPassword
+    const infoData = {
+      googleLogin,
+      user,
+      setUser,
+      loader,
+      UserLogin,
+      signUpUser,
+      updateUserProfile,
+      userLogOut,
+      forgetPassword
 
-  }
-  return (
-    <AuthContext.Provider value={infoData}>
-      {children}
-    </AuthContext.Provider>
+    }
+    return (
+      <AuthContext.Provider value={infoData}>
+        {children}
+      </AuthContext.Provider>
 
-  );
-};
+    );
+  };
 
-export default Provider;
+  export default Provider;

@@ -1,14 +1,14 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext,  useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from "react-helmet";
 
 const Login = () => {
     const [error, setError] = useState('');
-    const emailRef = useRef();
+    
     const location = useLocation();
     const navigate = useNavigate()
-    const { setUser, googleLogin, UserLogin, forgetPassword } = useContext(AuthContext);
+    const { setUser, googleLogin, UserLogin,  } = useContext(AuthContext);
 
 
 
@@ -38,22 +38,7 @@ const Login = () => {
             })
     }
 
-    const handelForgetPassword = () => {
-        const email = emailRef.current.value;
-        if (!email) {
-            return alert('please provide an email')
-        }
-        else {
-
-            forgetPassword(email)
-                .then(result => {
-                    console.log(result);
-                })
-        }
-
-
-
-    }
+    
 
 
 
@@ -72,15 +57,15 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input name='email' ref={emailRef} type="email" placeholder="email" className="input input-bordered" required />
+                        <input name='email'  type="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input name='password' type="password" placeholder="password" className="input input-bordered" required />
-                        <label onClick={handelForgetPassword} className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        <label className="label">
+                            <Link to='/forget' className="label-text-alt link link-hover">Forgot password?</Link> 
                         </label>
                     </div>
                     <div className="form-control mt-6">

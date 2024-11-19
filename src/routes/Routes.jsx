@@ -12,6 +12,7 @@ import Register from "../page/register/Register";
 import Profile from "../page/my-profie/Profile";
 import DetailsCard from "../components/detailscard/DetailsCard";
 import Private from "../private/Private";
+import ForgetPass from "../page/login/ForgetPass";
 const Routes = createBrowserRouter([
   {
     path: '/',
@@ -54,6 +55,10 @@ const Routes = createBrowserRouter([
           const singleItem = data.find(item => item.id == parseInt(params.id));
           return singleItem;
         }
+      },
+      {
+        path : '/forget',
+        element : <ForgetPass></ForgetPass>
       }
     ]
   },
