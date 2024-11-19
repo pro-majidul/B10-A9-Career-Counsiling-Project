@@ -3,6 +3,7 @@ import Banner from '../banner/Banner';
 import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../page/service/ServiceCard';
 import { Helmet } from 'react-helmet';
+import Feedback from '../feedback/Feedback';
 
 const Home = () => {
     const items = useLoaderData();
@@ -26,6 +27,8 @@ const Home = () => {
             <div className='w-32 mx-auto md:my-5 md:py-5'>
                <Link to='/service'> <button className='btn md:btn-md btn-sm btn-accent '>Show ALL</button></Link>
             </div>
+
+            <Feedback></Feedback>
         </div>
     );
 };
