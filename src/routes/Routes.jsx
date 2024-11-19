@@ -45,7 +45,9 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <DetailsCard></DetailsCard>,
+        element: <Private>
+          <DetailsCard></DetailsCard>
+        </Private>,
         loader: async ({ params }) => {
           const res = await fetch('/categoryDetails.json');
           const data = await res.json();

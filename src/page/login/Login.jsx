@@ -1,11 +1,13 @@
 import { useContext, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const [error, setError] = useState('');
     const emailRef = useRef();
+    const location = useLocation();
+    const navigate = useNavigate()
     const { setUser, googleLogin, UserLogin, forgetPassword } = useContext(AuthContext);
 
 
@@ -18,12 +20,10 @@ const Login = () => {
         UserLogin(email, password)
             .then((result) => {
                 setUser(result.user)
-                console.log(result.user);
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 setError(error.code)
-                console.log(error.code);
-
             })
     }
 
@@ -31,6 +31,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 setUser(result.user)
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 setError(error.code)

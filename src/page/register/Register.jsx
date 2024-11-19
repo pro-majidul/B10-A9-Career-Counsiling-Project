@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from 'react-helmet';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
@@ -7,7 +7,8 @@ import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 const Register = () => {
     const { signUpUser, updateUserProfile, setUser, googleLogin,userLogOut } = useContext(AuthContext)
 
-    const [showpass , setShowpass] = useState(false)
+    const [showpass , setShowpass] = useState(false);
+    const location = useLocation()
     const navigate = useNavigate()
     const handelRegister = (e) => {
         e.preventDefault();
@@ -45,7 +46,8 @@ const Register = () => {
     const googleloginhandler = () => {
         googleLogin()
             .then(result => {
-                setUser(result.user)
+                setUser(result.user);
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error.code);
