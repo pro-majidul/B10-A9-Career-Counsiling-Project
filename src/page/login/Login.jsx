@@ -52,13 +52,13 @@ const Login = () => {
             </Helmet>
             <div className="card bg-base-100 p-6 w-full md:max-w-md shrink-0 shadow-2xl">
                 <h3 className='font-semibold text-3xl ml-6'>Login Now </h3>
-                <form onSubmit={handelLogin} className="card-body">
+                <form onSubmit={handelLogin} class="w-full  bg-white rounded-lg items-center">
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input name='email'  type="email" placeholder="email" className="input input-bordered" required />
+                        <input name='email'  type="email" placeholder="email"  className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">

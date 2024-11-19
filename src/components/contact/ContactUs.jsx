@@ -9,8 +9,8 @@ const ContactUs = () => {
     return (
         <div>
             <div className="hero bg-base-100 min-h-screen">
-                <div data-aos="zoom-in-left" className="hero-content items-start flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div  className="hero-content gap-10 items-start flex-col lg:flex-row-reverse">
+                    <div data-aos="zoom-in-left" className="text-center  lg:text-left">
                         <h1 className="md:text-4xl font-bold">Feel Free to Contact with Us</h1>
                         <p className="py-6">
                         Located at United International University, this center offers services such as job placement, resume writing, interview techniques, and more
@@ -27,7 +27,7 @@ const ContactUs = () => {
                     </div>
                     <div data-aos="zoom-in-right" className="card w-full md:max-w-md p-3 shrink-0 shadow-2xl">
                         <h3 className='md:text-4xl  font-bold'>Leave a Message Here</h3>
-                        <form className="card-body">
+                        <form class="w-full  bg-white rounded-lg items-center">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name*</span>
