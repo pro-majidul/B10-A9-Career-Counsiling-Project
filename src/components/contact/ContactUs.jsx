@@ -27,7 +27,7 @@ const ContactUs = () => {
 
                         <p className='mb-2 md:mt-8'>Email</p>
                         <hr />
-                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail size={24} /> <a href="majidul123tub@gmail.com"className='text-xl' > majidul123tub@gmail.com</a></p>
+                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail size={24} /> <a href="mailto:majidul123tub@gmail.com"className='text-xl' > majidul123tub@gmail.com</a></p>
 
                     </div>
                     <div data-aos="zoom-in-right" className="card w-full md:max-w-md p-3 shrink-0 shadow-2xl">
