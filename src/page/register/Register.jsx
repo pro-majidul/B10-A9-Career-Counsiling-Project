@@ -6,9 +6,9 @@ import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const { signUpUser, updateUserProfile, setUser, googleLogin,userLogOut } = useContext(AuthContext)
+    const { signUpUser, updateUserProfile, setUser, googleLogin, userLogOut } = useContext(AuthContext)
 
-    const [showpass , setShowpass] = useState(false);
+    const [showpass, setShowpass] = useState(false);
     const location = useLocation()
     const navigate = useNavigate()
     const handelRegister = (e) => {
@@ -17,7 +17,7 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
         const name = e.target.name.value;
-        
+
         if (password.length < 6) {
             return toast.error('password must be 6 charector')
         }
@@ -27,20 +27,20 @@ const Register = () => {
         if (!/^(?=.*[A-Z]).*$/.test(password)) {
             return toast.error('provide an Uppercase Latter')
         }
-        
+
         signUpUser(email, password)
             .then(() => {
                 updateUserProfile(name, photo)
                     .then((result) => {
                         setUser(result)
-                        toast.success('userlogin success')
-                    });
-                    userLogOut(email)
-                    .then(()=>{
-                       navigate('/login') ;
-                       toast.success('user Logout success')
-                    })
 
+                    });
+                userLogOut(email)
+                    .then(() => {
+                        navigate('/login');
+
+                    })
+              toast.success('user register success please login ')  
             })
 
             .catch(error => {
@@ -55,9 +55,9 @@ const Register = () => {
                 navigate(location.state ? location.state : '/')
             })
             .catch(error => {
-               toast.error(error.code)
+                toast.error(error.code)
             })
-        
+
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -92,12 +92,12 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input  name='password' type={showpass ? 'text' : 'password'} placeholder="password" className="input input-bordered " required />
-                        <div className='absolute right-3 top-14' onClick={()=>setShowpass(!showpass)}>
-                       {
-                        showpass ?  <IoMdEye /> :
-                        <IoMdEyeOff />
-                       }
+                        <input name='password' type={showpass ? 'text' : 'password'} placeholder="password" className="input input-bordered " required />
+                        <div className='absolute right-3 top-14' onClick={() => setShowpass(!showpass)}>
+                            {
+                                showpass ? <IoMdEye /> :
+                                    <IoMdEyeOff />
+                            }
                         </div>
 
                     </div>

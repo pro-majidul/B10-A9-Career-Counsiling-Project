@@ -5,6 +5,8 @@ import { RouterProvider } from 'react-router-dom'
 import Routes from './routes/Routes.jsx'
 import Provider from './provider/Provider.jsx'
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 

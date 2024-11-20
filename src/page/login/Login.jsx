@@ -1,4 +1,4 @@
-import { useContext,  useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Provider';
 import { Helmet } from "react-helmet";
@@ -6,12 +6,12 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const [error, setError] = useState('');
-    
+
     const location = useLocation();
     const navigate = useNavigate()
-    const { setUser, googleLogin, UserLogin,  } = useContext(AuthContext);
+    const { setUser, googleLogin, UserLogin, } = useContext(AuthContext);
 
-
+    const [emails, setEmails] = useState()
 
     const handelLogin = e => {
         e.preventDefault();
@@ -42,6 +42,9 @@ const Login = () => {
                 toast.error(error.code)
             })
     }
+    const handelforget = () => {
+        navigate(`/forget?email=${emails}`)
+    }
 
     return (
 
@@ -58,7 +61,7 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input name='email'  type="email" placeholder="email"  className="input input-bordered" required />
+                        <input onChange={(e)=>setEmails(e.target.value)} name='email' type="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -66,7 +69,7 @@ const Login = () => {
                         </label>
                         <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                         <label className="label">
-                            <Link to='/forget' className="label-text-alt link link-hover">Forgot password?</Link> 
+                            <p onClick={handelforget} className="label-text-alt link link-hover">Forgot password?</p>
                         </label>
                     </div>
                     <div className="form-control mt-6">
