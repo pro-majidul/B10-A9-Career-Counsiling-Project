@@ -22,12 +22,12 @@ const ContactUs = () => {
                         </p>
                         <p className='mb-3'>Phone</p>
                         <hr />
-                        <p className='flex my-2 items-center gap-2'><FaPhoneAlt /> <a className='text-xl' > 01402327683</a> </p>
-                        <p className='flex my-2 items-center gap-2'><FaPhoneAlt /> <a className='text-xl' > 01582569820</a> </p>
+                        <p className='flex my-2 items-center gap-2'><FaPhoneAlt /> <a  href="tel:+8801402327683" className='text-xl' > 01402327683</a> </p>
+                        <p className='flex my-2 items-center gap-2'><FaPhoneAlt /> <a href="tel:+8801582569820"  className='text-xl' > 01582569820</a> </p>
 
                         <p className='mb-2 md:mt-8'>Email</p>
                         <hr />
-                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail size={24} /> <a className='text-xl' > majidul123tub@gmail.com</a></p>
+                        <p className='flex my-2 items-center gap-2'><MdOutlineEmail size={24} /> <a href="majidul123tub@gmail.com"className='text-xl' > majidul123tub@gmail.com</a></p>
 
                     </div>
                     <div data-aos="zoom-in-right" className="card w-full md:max-w-md p-3 shrink-0 shadow-2xl">
@@ -71,7 +71,7 @@ const ContactUs = () => {
                 </div>
             </div>
             <div>
-               
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6986998792395!2d90.44456977581123!3d23.793741287110237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c775164bf631%3A0x97f48a5be913a9fc!2sDhaka%20International%20University!5e0!3m2!1sen!2sbd!4v1732093903122!5m2!1sen!2sbd" className='w-full h-[450px] border-0' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     );
