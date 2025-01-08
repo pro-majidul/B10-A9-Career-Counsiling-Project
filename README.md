@@ -104,3 +104,8 @@ The Career Counseling Website is a platform designed to help users make informed
 
 - **recharts**: ^2.15.0
 
+# Install the dependencies
+`npm install`
+
+# Run the development server
+`npm run dev`
