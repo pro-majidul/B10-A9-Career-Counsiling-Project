@@ -7,7 +7,7 @@ The Career Counseling Website is a platform designed to help users make informed
 ---
 
 ## **Live URL**
-🔗 [Language Exchange Live Site](https://online-tutor-booking-pla-c7f2c.web.app/)  
+🔗 [Career Counseling Live Site](https://career-counsiling-projects.firebaseapp.com/)  
 
 
 ---
