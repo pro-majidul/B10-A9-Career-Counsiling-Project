@@ -1,8 +1,8 @@
 
-# Career-Code: A Job Portal System
+# Career Counseling Website
 
 ## **Project Purpose**
-Language Exchange is an online tutor booking platform designed to connect users with expert tutors across various languages and subjects. The platform offers a seamless, user-friendly interface to find, review, and book tutoring sessions, promoting accessible learning opportunities worldwide.
+The Career Counseling Website is a platform designed to help users make informed career decisions by offering personalized guidance, advice, and resources. Built using React, Firebase, and modern UI tools, this website is responsive, intuitive, and packed with essential features to provide a seamless experience.
 
 ---
 
@@ -12,40 +12,48 @@ Language Exchange is an online tutor booking platform designed to connect users 
 
 ---
 
-## **Key Features**
+## **Features**
+**User Authentication**:
+
 - User registration with input validation.  
 
 - Login using email/password or Google Authentication.
 - Password recovery functionality.
 - Protected routes for sensitive pages.
+  
+**Dynamic Routing and Protected Pages**:
+- Private routes for service details and user profile.
+- Persistent user authentication state across reloads.
+  
+**Homepage Components**:
 
- **Job Post Management**:  
-  *Employers can*:
-   - Add, update, and delete job posts.
-   - View all job postings with relevant details.
-   - Review applications submitted by job seekers.
+  **Slider**: Swiper slider with career-related images.
+  
+  **Services Section:**: Showcases six career counseling services with detailed information from JSON data.
+  
+  **Additional Sections**: Two extra sections with relevant content.
 
- **Job Application**:
- *Job seekers can*
-   - Browse and filter job postings.  
-   - View detailed job descriptions.
-   - Apply for jobs using a dynamic form with career and personal details
-   - Withdraw applications when needed.
+
+ **Service Details Page**:  
+ 
+   - Detailed information about selected services.
+   - Comment/Feedback feature to allow users to share their thoughts.
+
+
+ **User Profile Management**:
+
+   - Users can view and update their name and photo URL using Firebase's `updateProfile` method.
      
- **Search and Filter**:  
-   - Search jobs by title.
-   - Filter jobs by type, experience level, and salary range.
-   - Sort jobs by application deadline.
-
  **Responsive Design**:  
-   - Fully responsive UI optimized for mobile, tablet, and desktop.  
+   - Optimized for mobile, tablet, and desktop devices.
+     
+ **Additional Features**:  
+   - Show/hide password toggle on the registration page.
+   - Dynamic page titles for SEO.
+   - A visually appealing 404 page.
 
- **Dark/Light Mode Toggle**:  
-   - Enhance user experience with a switchable dark/light theme.  
 
- **Error and Loading State Handling**:  
-   - Informative error messages for user actions.
-   - Smooth loading indicators for data fetching and processing.
+   
 ---
 
 ## **Technologies and Packages Used**
@@ -53,8 +61,8 @@ Language Exchange is an online tutor booking platform designed to connect users 
 ### **Frontend**  
 - **React JS**: For building the user interface.  
 - **Tailwind CSS**: For modern and responsive design.  
-- **DaisyUI**: Pre-designed components for faster development.  
-
+- **DaisyUI**: Pre-designed components for faster development.
+- 
 ### **Backend**  
 - **Firebase**
 - Authentication for user registration and login.
